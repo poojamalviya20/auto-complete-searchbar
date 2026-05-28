@@ -2,3 +2,24 @@
   font-family: sans-serif;
   text-align: center;
 }
+.search-input {
+  width: 400px;
+  padding: 5px;
+}
+.results-container {
+  width: 400px;
+  margin: auto;
+  border: 1px solid black;
+  padding: 1px;
+  text-align: left;
+  max-height: 400px;
+  overflow-y: scroll;
+}
+.result {
+  display: block;
+  padding: 3px;
+}
+.result:hover {
+  background-color: beige;
+  cursor: pointer;
+}
