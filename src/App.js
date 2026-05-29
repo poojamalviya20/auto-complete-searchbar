@@ -6,12 +6,19 @@ export default function App() {
   const [input, setInput] = useState("");
   const [results, setResults] = useState([]);
   const [showResult, setShowResult] = useState(false);
+  const [cache, setCache] = useState({});
 
   const fetchData = async () => {
+    if (cache[input]) {
+      console.log("cache returned", input);
+      setResults(cache[input]);
+      return;
+    }
     console.log("api call");
     const data = await fetch("https://dummyjson.com/recipes/search?q=" + input);
     const json = await data.json();
     setResults(json?.recipes);
+    setCache((prev) => ({ ...prev, [input]: json?.recipes }));
   };
 
   useEffect(() => {
